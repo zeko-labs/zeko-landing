@@ -4,13 +4,13 @@ import { Link } from "@nextui-org/link";
 
 export const Footer = () => {
   return (
-    <footer className="w-full flex items-center justify-center gap-4 py-3">
-      <span>The future of zk will be built by you</span>
+    <footer className="w-full flex items-center justify-end gap-8 p-8">
+      <span className="text-yellow-300 font-bold text-4xl">MVP</span>
       <Link isExternal href={siteConfig.links.twitter} aria-label="Twitter">
-        <TwitterIcon className="text-default-500" />
+        <TwitterIcon className="text-default-500" size={40} />
       </Link>
       <Link isExternal href={siteConfig.links.github} aria-label="Github">
-        <GithubIcon className="text-default-500" />
+        <GithubIcon className="text-default-500" size={40} />
       </Link>
     </footer>
   );

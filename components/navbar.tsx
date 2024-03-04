@@ -11,12 +11,15 @@ import { Logo } from "@/components/icons";
 
 export const Navbar = () => {
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <NextUINavbar
+      className="bg-opacity-0 bg-transparent backdrop-blur-none backdrop-filter-none"
+      maxWidth="xl"
+      position="sticky"
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
             <Logo />
-            <p className="font-bold text-inherit">Zeko</p>
           </NextLink>
         </NavbarBrand>
       </NavbarContent>

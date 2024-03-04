@@ -5,35 +5,36 @@ import { title, subtitle } from "@/components/primitives";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <div className="inline-block max-w-lg text-center justify-center">
-        <h1 className={title()}>Decentralised trust, at scale</h1>
+    <section className="flex flex-col items-center md:items-start justify-start gap-4 py-8 md:py-10 text-center md:text-left">
+      <div className="inline-block max-w-3xl justify-center">
+        <h1 className={title()}>
+          Decentralized Privacy, <strong>Amplified</strong>
+        </h1>
         <br />
         <h2 className={subtitle({ class: "mt-4" })}>
-          Zeko is an isomorphic zero-knowledge (zk) scaling solution for Web3
-          apps, built on Mina
+          Zeko is the premium zero-knowledge scaling protocol, built on Mina and
+          designed for developers thinking bigger
         </h2>
       </div>
 
-      <div className="flex gap-3">
-        <Link
-          isExternal
-          className={buttonStyles({ variant: "bordered", radius: "full" })}
-          href={siteConfig.links.docs}
-        >
-          Whitepaper
-        </Link>
-        <Link
-          isExternal
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
-          href={siteConfig.links.github}
-        >
-          Sign Up
-        </Link>
+      <div className="flex flex-col md:flex-row gap-3 items-center">
+        <h2 className={subtitle()}>Stay tuned for the future of zk...</h2>
+        <div className="flex gap-3">
+          <Link
+            isExternal
+            className={buttonStyles({ variant: "bordered", radius: "full" })}
+            href={siteConfig.links.github}
+          >
+            Sign Up
+          </Link>
+          <Link
+            isExternal
+            className={buttonStyles({ variant: "bordered", radius: "full" })}
+            href={siteConfig.links.docs}
+          >
+            Whitepaper
+          </Link>
+        </div>
       </div>
     </section>
   );
