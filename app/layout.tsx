@@ -43,11 +43,6 @@ export default function RootLayout({
           Your browser does not support the video tag.
         </video>
 
-        <audio autoPlay loop id="backgroundMusic">
-          <source src="/background.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />

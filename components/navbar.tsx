@@ -6,7 +6,11 @@ import {
 } from "@nextui-org/navbar";
 import NextLink from "next/link";
 import { Logo } from "@/components/icons";
-import { MuteSwitch } from "./mute-switch";
+import dynamic from "next/dynamic";
+
+const DynamicMuteSwitch = dynamic(() => import("./mute-switch"), {
+  ssr: false,
+});
 
 export const Navbar = () => {
   return (
@@ -28,8 +32,12 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <MuteSwitch />
+          <DynamicMuteSwitch />
         </NavbarItem>
+      </NavbarContent>
+
+      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+        <DynamicMuteSwitch />
       </NavbarContent>
 
       {/* <NavbarContent

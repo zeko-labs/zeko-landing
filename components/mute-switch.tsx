@@ -12,27 +12,22 @@ export interface MuteSwitchProps {
   classNames?: SwitchProps["classNames"];
 }
 
-export const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
-  const [audioEl, setAudioEl] = useState<HTMLAudioElement | undefined>(
-    undefined
-  );
+const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
+  const [audio] = useState(new Audio("/background.mp3"));
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const toggle = () => setIsPlaying(!isPlaying);
 
   useEffect(() => {
-    setAudioEl(
-      document.querySelector("#backgroundMusic") as HTMLAudioElement | undefined
-    );
-  }, []);
+    isPlaying ? audio.play() : audio.pause();
+  }, [audio, isPlaying]);
 
-  const onChange = () => {
-    if (audioEl) {
-      audioEl.paused ? audioEl.play() : audioEl.pause();
-      setAudioEl(
-        document.querySelector("#backgroundMusic") as
-          | HTMLAudioElement
-          | undefined
-      );
-    }
-  };
+  useEffect(() => {
+    audio.addEventListener("ended", () => setIsPlaying(false));
+    return () => {
+      audio.removeEventListener("ended", () => setIsPlaying(false));
+    };
+  }, [audio]);
 
   const {
     Component,
@@ -42,8 +37,8 @@ export const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
     getInputProps,
     getWrapperProps,
   } = useSwitch({
-    isSelected: audioEl?.paused,
-    onChange,
+    isSelected: isPlaying,
+    onChange: toggle,
   });
 
   return (
@@ -83,3 +78,5 @@ export const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
     </Component>
   );
 };
+
+export default MuteSwitch;
