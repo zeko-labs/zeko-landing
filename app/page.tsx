@@ -5,27 +5,27 @@ import { title, subtitle } from "@/components/primitives";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center md:items-start justify-start gap-4 py-8 md:py-10 text-center md:text-left">
+    <section className="flex flex-col items-center md:items-start justify-start gap-4 md:gap-20 py-8 md:py-10 text-center md:text-left">
       <div className="inline-block max-w-3xl justify-center">
         <h1 className={title()}>
-          Decentralized Privacy, <strong>Amplified</strong>
+          Decentralized Trust, <strong>Amplified</strong>
         </h1>
         <br />
         <h2 className={subtitle({ class: "mt-4" })}>
-          Zeko is the premium zero-knowledge scaling protocol, built on Mina and
-          designed for developers thinking bigger
+          Zeko is the premium <strong>zero-knowledge scaling protocol</strong>,
+          built on Mina and designed for ambitious developers
         </h2>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-3 items-center">
-        <h2 className={subtitle()}>Stay tuned for the future of zk...</h2>
+      <div className="flex flex-col md:flex-row md:gap-3 items-center">
+        <h2 className={subtitle()}>Start building the future...</h2>
         <div className="flex gap-3">
           <Link
             isExternal
             className={buttonStyles({ variant: "bordered", radius: "full" })}
             href={siteConfig.links.github}
           >
-            Sign Up
+            MVP Sign Up
           </Link>
           <Link
             isExternal

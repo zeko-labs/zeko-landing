@@ -1,11 +1,5 @@
-import { Fira_Code as FontMono, Lexend as FontSans } from "next/font/google";
+import { Lexend } from "next/font/google";
 
-export const fontSans = FontSans({
+export const fontLexend = Lexend({
   subsets: ["latin"],
-  variable: "--font-sans",
-});
-
-export const fontMono = FontMono({
-  subsets: ["latin"],
-  variable: "--font-mono",
 });
