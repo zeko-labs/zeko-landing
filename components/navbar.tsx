@@ -2,9 +2,15 @@ import {
   Navbar as NextUINavbar,
   NavbarContent,
   NavbarBrand,
+  NavbarItem,
 } from "@nextui-org/navbar";
 import NextLink from "next/link";
 import { Logo } from "@/components/icons";
+import dynamic from "next/dynamic";
+
+const DynamicMuteSwitch = dynamic(() => import("./mute-switch"), {
+  ssr: false,
+});
 
 export const Navbar = () => {
   return (
@@ -19,6 +25,19 @@ export const Navbar = () => {
             <Logo width={160} height={40} />
           </NextLink>
         </NavbarBrand>
+      </NavbarContent>
+
+      <NavbarContent
+        className="hidden sm:flex basis-1/5 sm:basis-full"
+        justify="end"
+      >
+        <NavbarItem className="hidden sm:flex gap-2">
+          <DynamicMuteSwitch />
+        </NavbarItem>
+      </NavbarContent>
+
+      <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+        <DynamicMuteSwitch />
       </NavbarContent>
 
       {/* <NavbarContent

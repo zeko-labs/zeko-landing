@@ -32,13 +32,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
-      <body
-        className={clsx(
-          "min-h-screen bg-zeko bg-no-repeat bg-cover",
-          fontLexend.className
-        )}
-      >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+      <body className={clsx("min-h-screen", fontLexend.className)}>
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute w-screen h-screen object-cover"
+        >
+          <source src="/background.webm" />
+          Your browser does not support the video tag.
+        </video>
+
+        <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
             <main className="container mx-auto max-w-7xl px-6 flex flex-grow flex-col justify-center">

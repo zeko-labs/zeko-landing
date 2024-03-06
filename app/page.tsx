@@ -1,6 +1,3 @@
-import { Link } from "@nextui-org/link";
-import { button as buttonStyles } from "@nextui-org/theme";
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 
 export default function Home() {
@@ -10,31 +7,11 @@ export default function Home() {
         <h1 className={title()}>
           Decentralized Trust, <strong>Amplified</strong>
         </h1>
-        <br />
-        <h2 className={subtitle({ class: "mt-4" })}>
-          Zeko is the premium <strong>zero-knowledge scaling protocol</strong>,
-          built on Mina and designed for ambitious developers
+        <h2 className={subtitle({ class: "mt-16 max-w-xl" })}>
+          Zeko is the premier <strong>zero-knowledge scaling protocol</strong>,
+          built on Mina and designed for developers shaping the future of
+          finance, AI, and gaming
         </h2>
-      </div>
-
-      <div className="flex flex-col md:flex-row md:gap-3 items-center">
-        <h2 className={subtitle()}>Start building the future...</h2>
-        <div className="flex gap-3">
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
-          >
-            MVP Sign Up
-          </Link>
-          <Link
-            isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.docs}
-          >
-            Whitepaper
-          </Link>
-        </div>
       </div>
     </section>
   );
