@@ -14,7 +14,7 @@ export interface MuteSwitchProps {
 
 const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
   const [audio] = useState(new Audio("/background.mp3"));
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const toggle = () => setIsPlaying(!isPlaying);
 
@@ -23,9 +23,9 @@ const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
   }, [audio, isPlaying]);
 
   useEffect(() => {
-    audio.addEventListener("ended", () => setIsPlaying(false));
+    audio.addEventListener("ended", () => audio.play());
     return () => {
-      audio.removeEventListener("ended", () => setIsPlaying(false));
+      audio.removeEventListener("ended", () => audio.play());
     };
   }, [audio]);
 
