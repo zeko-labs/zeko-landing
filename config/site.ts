@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "Zeko",
   description:
-    "Zeko is an isomorphic zero-knowledge (zk) scaling solution for Web3 apps, built on Mina",
+    "Zeko is the premier zero-knowledge scaling protocol, built on Mina and designed for developers shaping the future of finance, AI, and gaming",
   navItems: [
     {
       label: "Home",
@@ -61,10 +61,9 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/nextui-org/nextui",
-    twitter: "https://twitter.com/getnextui",
-    docs: "https://nextui.org",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    twitter: "https://twitter.com/ZekoLabs",
+    telegram: "https://t.me/+m8LBsR2kNTAxNmFh",
+    litepaper: "https://docsend.com/view/f9a6kgdr4tjwuqng",
+    discord: "https://discord.gg/vSDxqAchUY",
   },
 };

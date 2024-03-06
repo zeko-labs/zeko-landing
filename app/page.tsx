@@ -7,10 +7,10 @@ export default function Home() {
         <h1 className={title()}>
           Decentralized Trust, <strong>Amplified</strong>
         </h1>
-        <h2 className={subtitle({ class: "mt-16" })}>
+        <h2 className={subtitle({ class: "mt-16 max-w-xl" })}>
           Zeko is the premier <strong>zero-knowledge scaling protocol</strong>,
-          built on Mina and designed for developers shaping an expansive future
-          of finance, AI, and gaming
+          built on Mina and designed for developers shaping the future of
+          finance, AI, and gaming
         </h2>
       </div>
     </section>
