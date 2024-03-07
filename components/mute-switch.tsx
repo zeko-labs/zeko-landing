@@ -15,7 +15,7 @@ export interface MuteSwitchProps {
 }
 
 const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const toggle = () => setIsPlaying(!isPlaying);
 
