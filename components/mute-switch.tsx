@@ -75,7 +75,7 @@ const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
           ),
         })}
       >
-        {!isSelected ? <MuteIcon size={22} /> : <UnMuteIcon size={22} />}
+        {isSelected ? <MuteIcon size={22} /> : <UnMuteIcon size={22} />}
       </div>
     </Component>
   );
