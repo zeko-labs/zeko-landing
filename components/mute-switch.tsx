@@ -7,27 +7,29 @@ import clsx from "clsx";
 
 import { UnMuteIcon, MuteIcon } from "@/components/icons";
 
+const audio = new Audio("/background.mp3");
+
 export interface MuteSwitchProps {
   className?: string;
   classNames?: SwitchProps["classNames"];
 }
 
 const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
-  const [audio] = useState(new Audio("/background.mp3"));
   const [isPlaying, setIsPlaying] = useState(true);
 
   const toggle = () => setIsPlaying(!isPlaying);
 
   useEffect(() => {
     isPlaying ? audio.play() : audio.pause();
-  }, [audio, isPlaying]);
+  }, [isPlaying]);
 
   useEffect(() => {
     audio.addEventListener("ended", () => audio.play());
     return () => {
-      audio.removeEventListener("ended", () => audio.play());
+      audio.removeEventListener("ended", () => audio.pause());
+      audio.pause();
     };
-  }, [audio]);
+  }, []);
 
   const {
     Component,
