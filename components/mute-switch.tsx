@@ -39,7 +39,7 @@ const MuteSwitch: FC<MuteSwitchProps> = ({ className, classNames }) => {
     getInputProps,
     getWrapperProps,
   } = useSwitch({
-    isSelected: isPlaying,
+    isSelected: !isPlaying,
     onChange: toggle,
   });
 
