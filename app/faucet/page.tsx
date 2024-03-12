@@ -51,15 +51,19 @@ export default function DocsPage() {
     <>
       <h1 className={title()}>Faucet</h1>
 
-      <h2 className={subtitle()}>
-        Enter a Mina address to receive testnet MINA (tMINA) on Zeko L2.
-        <br />
-        These have no value, monetary or otherwise, and are solely useful for
-        experimenting on testnets.
-        <br />
-        tMINA cannot be sold and is not redeemable for any cryptocurrency or
-        digital asset.
-      </h2>
+      <div className="flex flex-col gap-2">
+        <h2 className={subtitle({ noMargin: true })}>
+          Enter a Mina address to receive testnet MINA (tMINA) on Zeko L2.
+        </h2>
+        <h2 className={subtitle({ noMargin: true })}>
+          These have no value, monetary or otherwise, and are solely useful for
+          experimenting on testnets.
+        </h2>
+        <h2 className={subtitle({ noMargin: true })}>
+          tMINA cannot be sold and is not redeemable for any cryptocurrency or
+          digital asset.
+        </h2>
+      </div>
 
       <NetworkSelector />
 
