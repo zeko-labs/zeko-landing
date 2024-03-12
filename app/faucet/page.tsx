@@ -4,6 +4,7 @@ import { label, subtitle, title } from "@/components/primitives";
 import { NETWORKS } from "@/config/networks";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
+import { Link } from "@nextui-org/link";
 import { clsx } from "clsx";
 import { useState } from "react";
 
@@ -25,6 +26,12 @@ export default function DocsPage() {
           </Button>
         ))}
       </div>
+      <span className={label()}>
+        To faucet tMINA on Mina L1 please visit{" "}
+        <Link href="https://faucet.minaprotocol.com" target="_blank">
+          https://faucet.minaprotocol.com
+        </Link>
+      </span>
     </div>
   );
 
@@ -45,7 +52,7 @@ export default function DocsPage() {
       <h1 className={title()}>Faucet</h1>
 
       <h2 className={subtitle()}>
-        Enter a Mina address to receive testnet MINA (tMINA).
+        Enter a Mina address to receive testnet MINA (tMINA) on Zeko L2.
         <br />
         These have no value, monetary or otherwise, and are solely useful for
         experimenting on testnets.
