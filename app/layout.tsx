@@ -33,15 +33,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head />
       <body className={clsx("min-h-screen", fontLexend.className)}>
-        <video
-          autoPlay
-          loop
-          muted
-          className="absolute w-screen h-screen object-cover"
-        >
-          <source src="/background.webm" />
-          Your browser does not support the video tag.
-        </video>
+        <div className="fixed w-screen h-screen -z-10">
+          <video autoPlay loop muted className="w-full h-full object-cover">
+            <source src="/background.webm" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         <Providers themeProps={{ attribute: "class", defaultTheme: "light" }}>
           <div className="relative flex flex-col h-screen">

@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <footer className="w-full flex items-center justify-center md:justify-end gap-4 md:gap-8 p-4 md:p-8">
       <Link isExternal href={siteConfig.links.discord} aria-label="Twitter">
-        <span className="text-yellow-700 font-bold text-4xl">MVP</span>
+        <span className="font-bold text-4xl">MVP</span>
       </Link>
       <Link isExternal href={siteConfig.links.litepaper} aria-label="Twitter">
         <PaperIcon className="text-default-900" size={40} />

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -7,15 +9,34 @@ import {
 import NextLink from "next/link";
 import { Logo } from "@/components/icons";
 import dynamic from "next/dynamic";
+import { useCallback, useEffect, useState } from "react";
+import clsx from "clsx";
 
 const DynamicMuteSwitch = dynamic(() => import("./mute-switch"), {
   ssr: false,
 });
 
 export const Navbar = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  const onScroll = useCallback(() => {
+    setScrollY(window.scrollY);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <NextUINavbar
-      className="bg-opacity-0 bg-transparent backdrop-blur-none backdrop-filter-none"
+      className={clsx("bg-opacity-100 backdrop-blur-sm", {
+        "bg-transparent": scrollY === 0,
+        "bg-white": scrollY > 0,
+      })}
       maxWidth="xl"
       position="sticky"
     >
