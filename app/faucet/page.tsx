@@ -2,14 +2,24 @@
 
 import { label, subtitle, title } from "@/components/primitives";
 import { NETWORKS } from "@/config/networks";
+import FaucetApiService from "@/services/faucetApi";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { Link } from "@nextui-org/link";
 import { clsx } from "clsx";
 import { useState } from "react";
 
+const fas = new FaucetApiService();
+
 export default function DocsPage() {
   const [network, setNetwork] = useState(NETWORKS[0]);
+  const [address, setAddress] = useState("");
+  const [responseTxt, setResponseTxt] = useState("");
+
+  const handleRequest = async () => {
+    const responseTxt = await fas.request(address);
+    setResponseTxt(responseTxt);
+  };
 
   const NetworkSelector = () => (
     <div className="w-full flex flex-col gap-2">
@@ -43,6 +53,8 @@ export default function DocsPage() {
         type="email"
         variant="bordered"
         placeholder="B62..."
+        value={address}
+        onChange={(event) => setAddress(event.target.value)}
       />
     </div>
   );
@@ -70,7 +82,12 @@ export default function DocsPage() {
       <MinaAddressInput />
 
       <div className="w-full flex flex-col md:flex-row items-center text-center md:text-left gap-2 md:gap-8">
-        <Button color="primary" className="w-full md:w-fit" radius="sm">
+        <Button
+          color="primary"
+          className="w-full md:w-fit"
+          radius="sm"
+          onClick={handleRequest}
+        >
           REQUEST ➜
         </Button>
         <span className={clsx(label(), "w-full md:w-80")}>
@@ -78,6 +95,10 @@ export default function DocsPage() {
           access.
         </span>
       </div>
+
+      <span className={clsx(label(), "w-full")}>
+        {responseTxt || <>&nbsp;</>}
+      </span>
     </>
   );
 }
