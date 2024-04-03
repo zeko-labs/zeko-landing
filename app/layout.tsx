@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 import { Navbar } from "@/components/navbar";
 import clsx from "clsx";
 import { Footer } from "@/components/footer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +32,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-JRVJC59NX3"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JRVJC59NX3');
+          `}
+        </Script>
+      </head>
       <body className={clsx("min-h-screen", fontLexend.className)}>
         <div className="fixed w-screen h-screen -z-10">
           <video autoPlay loop muted className="w-full h-full object-cover">
