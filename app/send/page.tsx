@@ -7,6 +7,8 @@ import { getUsdRate } from "@/app/send/actions";
 
 import { Button } from "@nextui-org/button";
 import { Card, Select, SelectItem } from "@nextui-org/react";
+import { subtitle, title } from "@/components/primitives";
+import { Input } from "@nextui-org/input";
 
 const USDollarFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -57,53 +59,63 @@ export default function SendPage() {
   };
   return (
     <>
+      <h1 className={title()}>Send</h1>
+
+      <div className="flex flex-col gap-2 text-left">
+        <h2 className={subtitle({ noMargin: true })}>
+          Provide a specific amount and the recipient Mina address to transfer
+          MINA.
+        </h2>
+        <h2 className={subtitle({ noMargin: true })}>
+          These have no value, monetary or otherwise, and are solely useful for
+          experimenting on testnets.
+        </h2>
+        <h2 className={subtitle({ noMargin: true })}>
+          tMINA cannot be sold and is not redeemable for any cryptocurrency or
+          digital asset.
+        </h2>
+      </div>
       <Card>
-        <div className="p-4">
-          <div className="text-left">You are sending</div>
-          <input
-            type="text"
-            className="w-full text-5xl text-center focus:outline-none"
-            value={amount}
-            placeholder="0"
-            onChange={(e) => {
-              setAmount(e.target.value);
-            }}
-          />
-          <div className="text-left text-sm text-gray-500">
-            {USDollarFormatter.format(Number(amount) * balance)}
-          </div>
-        </div>
-        <div>
-          <Select radius="none">
+        <div className="text-left m-5 mb-1">Select Token</div>
+        <div className="m-4 mt-1">
+          <Select>
             <SelectItem key={0} value="mina-protocol">
               MINA
             </SelectItem>
           </Select>
         </div>
+        <div className="p-4">
+          <div className="text-left mb-5">You are sending</div>
+          <Input
+            className="w-full md:w-[40rem]"
+            placeholder="0"
+            value={amount}
+            onChange={(event) => setAmount(event.target.value)}
+          />
+          <div className="text-left text-sm text-gray-500 mt-3">
+            {USDollarFormatter.format(Number(amount) * balance)}
+          </div>
+        </div>
       </Card>
-      <Card className="p-3 mt-3">
-        <div className="text-left">To</div>
-        <input
-          type="text"
-          className="w-full text-sm text-left p-3 focus:outline-none"
+      <Card className="p-5">
+        <div className="text-left mb-5">To</div>
+        <Input
+          className="w-full md:w-[40rem]"
+          type="email"
+          placeholder="B62..."
           value={recipient}
-          placeholder="Type address here"
-          onChange={(e) => setRecipient(e.target.value)}
+          onChange={(event) => setRecipient(event.target.value)}
         />
+
+        <Button
+          color="primary"
+          className="w-full mt-3"
+          radius="sm"
+          onClick={handleSend}
+        >
+          SEND ➜
+        </Button>
       </Card>
-      {!connected ? (
-        <Card>
-          <Button className="btn-warning w-full" onClick={handleConnectWallet}>
-            Connect Wallet
-          </Button>
-        </Card>
-      ) : (
-        <Card>
-          <Button className="btn-warning w-full" onClick={handleSend}>
-            Send
-          </Button>
-        </Card>
-      )}
     </>
   );
 }
