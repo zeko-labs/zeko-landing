@@ -7,10 +7,10 @@ import {
   NavbarItem,
 } from "@nextui-org/navbar";
 import NextLink from "next/link";
-import { Logo } from "@/components/icons";
 import dynamic from "next/dynamic";
 import { useCallback, useEffect, useState } from "react";
 import clsx from "clsx";
+import Image from "next/image";
 
 const DynamicMuteSwitch = dynamic(() => import("./mute-switch"), {
   ssr: false,
@@ -39,11 +39,12 @@ export const Navbar = () => {
       })}
       maxWidth="xl"
       position="sticky"
+      height={80}
     >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
-            <Logo width={160} height={40} />
+            <Image src={"./logo.svg"} alt="" width={160} height={40} />
           </NextLink>
         </NavbarBrand>
       </NavbarContent>
