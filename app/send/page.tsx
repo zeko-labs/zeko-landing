@@ -76,8 +76,7 @@ export default function SendPage() {
         </h2>
       </div>
       <Card>
-        <div className="text-left m-5 mb-1">Select Token</div>
-        <div className="m-4 mt-1">
+        <div className="m-4">
           <Select>
             <SelectItem key={0} value="mina-protocol">
               MINA

@@ -3,6 +3,7 @@ import {
   TelegramIcon,
   PaperIcon,
   DocsIcon,
+  GithubIcon,
 } from "@/components/icons";
 import { siteConfig } from "@/config/site";
 import { Link } from "@nextui-org/link";
@@ -14,7 +15,7 @@ export const Footer = () => {
         <span className="font-bold text-4xl">MVP</span>
       </Link>
       <Link isExternal href={siteConfig.links.docs} aria-label="Docs">
-        <DocsIcon className="text-default-900" size={40} />
+        <GithubIcon className="text-default-900" size={40} />
       </Link>
       <Link
         isExternal
