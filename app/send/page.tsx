@@ -106,14 +106,25 @@ export default function SendPage() {
           onChange={(event) => setRecipient(event.target.value)}
         />
 
-        <Button
-          color="primary"
-          className="w-full mt-3"
-          radius="sm"
-          onClick={handleSend}
-        >
-          SEND ➜
-        </Button>
+        {connected ? (
+          <Button
+            color="primary"
+            className="w-full mt-3"
+            radius="sm"
+            onClick={handleSend}
+          >
+            SEND ➜
+          </Button>
+        ) : (
+          <Button
+            color="primary"
+            className="w-full mt-3"
+            radius="sm"
+            onClick={handleConnectWallet}
+          >
+            Connect Wallet ➜
+          </Button>
+        )}
       </Card>
     </>
   );
