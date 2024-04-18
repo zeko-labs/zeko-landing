@@ -10,11 +10,6 @@ import { Card, Select, SelectItem } from "@nextui-org/react";
 import { subtitle, title } from "@/components/primitives";
 import { Input } from "@nextui-org/input";
 
-const USDollarFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-});
-
 const tokenName = "mina-protocol";
 
 export default function SendPage() {
@@ -30,12 +25,6 @@ export default function SendPage() {
   };
 
   useEffect(() => {
-    if (
-      typeof window !== undefined &&
-      window.localStorage.getItem(WALLET_CONNECTED_BEFORE_FLAG)
-    ) {
-      setConnected(true);
-    }
     getUsdRate(tokenName)
       .then((val) => {
         setBalance(val.data[tokenName].usd);
@@ -64,7 +53,7 @@ export default function SendPage() {
       <div className="flex flex-col gap-2 text-left">
         <h2 className={subtitle({ noMargin: true })}>
           Provide a specific amount and the recipient Mina address to transfer
-          MINA.
+          testnet Mina on Zeko
         </h2>
         <h2 className={subtitle({ noMargin: true })}>
           These have no value, monetary or otherwise, and are solely useful for
@@ -75,31 +64,33 @@ export default function SendPage() {
           digital asset.
         </h2>
       </div>
-      <Card>
-        <div className="m-4">
-          <Select>
+      <div>
+        <div className="p-4 pl-0">
+          <Select variant="bordered" size="lg" className="md:w-[40rem]">
             <SelectItem key={0} value="mina-protocol">
               MINA
             </SelectItem>
           </Select>
         </div>
-        <div className="p-4">
+        <div className="p-4 pl-0 pb-0">
           <div className="text-left mb-5">You are sending</div>
-          <Input
-            className="w-full md:w-[40rem]"
-            placeholder="0"
-            value={amount}
-            onChange={(event) => setAmount(event.target.value)}
-          />
-          <div className="text-left text-sm text-gray-500 mt-3">
-            {USDollarFormatter.format(Number(amount) * balance)}
+          <div className="flex flex-row gap-5 items-center">
+            <Input
+              className="w-full md:w-[33rem]"
+              variant="bordered"
+              placeholder="0"
+              value={amount}
+              onChange={(event) => setAmount(event.target.value)}
+            />
+            <div className="text-2xl">tMINA</div>
           </div>
         </div>
-      </Card>
-      <Card className="p-5">
+      </div>
+      <div>
         <div className="text-left mb-5">To</div>
         <Input
           className="w-full md:w-[40rem]"
+          variant="bordered"
           type="email"
           placeholder="B62..."
           value={recipient}
@@ -125,7 +116,7 @@ export default function SendPage() {
             Connect Wallet ➜
           </Button>
         )}
-      </Card>
+      </div>
     </>
   );
 }
