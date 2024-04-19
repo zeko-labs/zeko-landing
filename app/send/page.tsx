@@ -40,7 +40,7 @@ export default function SendPage() {
     <div className="pb-6">
       <h1 className={title()}>Send</h1>
 
-      <div className="flex flex-col gap-2 text-left">
+      <div className="flex flex-col gap-2 text-left mt-10">
         <h2 className={subtitle({ noMargin: true })}>
           Provide a specific amount and the recipient Mina address to transfer
           testnet Mina on Zeko
@@ -54,7 +54,7 @@ export default function SendPage() {
           digital asset.
         </h2>
       </div>
-      <div className="w-full flex flex-col gap-2">
+      <div className="w-full flex flex-col gap-2 mt-10">
         <div className="p-4 pl-0 pb-0">
           <div className="text-md mb-2">You are sending</div>
           <div className="flex flex-row gap-5 items-center">
