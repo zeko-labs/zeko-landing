@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 import { mina } from "@/lib/wallet";
 import { connect, WALLET_CONNECTED_BEFORE_FLAG } from "@/lib/wallet";
-import { getUsdRate } from "@/app/send/actions";
 
 import { Button } from "@nextui-org/button";
-import { Card, Select, SelectItem } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
 import { subtitle, title } from "@/components/primitives";
 import { Input } from "@nextui-org/input";
 
@@ -16,21 +15,12 @@ export default function SendPage() {
   const [amount, setAmount] = useState("");
   const [recipient, setRecipient] = useState("");
   const [connected, setConnected] = useState(false);
-  const [balance, setBalance] = useState(1);
 
   const handleConnectWallet = () => {
     connect()
       .then(() => setConnected(true))
       .catch((err) => console.log(err));
   };
-
-  useEffect(() => {
-    getUsdRate(tokenName)
-      .then((val) => {
-        setBalance(val.data[tokenName].usd);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   const handleSend = async () => {
     try {
@@ -47,7 +37,7 @@ export default function SendPage() {
     }
   };
   return (
-    <>
+    <div className="pb-6">
       <h1 className={title()}>Send</h1>
 
       <div className="flex flex-col gap-2 text-left">
@@ -65,13 +55,6 @@ export default function SendPage() {
         </h2>
       </div>
       <div className="w-full flex flex-col gap-2">
-        <div className="p-4 pl-0">
-          <Select variant="bordered" size="lg" className="md:w-[40rem]">
-            <SelectItem key={0} value="mina-protocol">
-              MINA
-            </SelectItem>
-          </Select>
-        </div>
         <div className="p-4 pl-0 pb-0">
           <div className="text-md mb-2">You are sending</div>
           <div className="flex flex-row gap-5 items-center">
@@ -117,6 +100,6 @@ export default function SendPage() {
           </Button>
         )}
       </div>
-    </>
+    </div>
   );
 }
