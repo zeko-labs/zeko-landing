@@ -64,7 +64,7 @@ export default function SendPage() {
           digital asset.
         </h2>
       </div>
-      <div>
+      <div className="w-full flex flex-col gap-2">
         <div className="p-4 pl-0">
           <Select variant="bordered" size="lg" className="md:w-[40rem]">
             <SelectItem key={0} value="mina-protocol">
@@ -73,7 +73,7 @@ export default function SendPage() {
           </Select>
         </div>
         <div className="p-4 pl-0 pb-0">
-          <div className="text-left mb-5">You are sending</div>
+          <div className="text-md mb-2">You are sending</div>
           <div className="flex flex-row gap-5 items-center">
             <Input
               className="w-full md:w-[33rem]"
@@ -86,8 +86,9 @@ export default function SendPage() {
           </div>
         </div>
       </div>
-      <div>
-        <div className="text-left mb-5">To</div>
+
+      <div className="w-full flex flex-col gap-2">
+        <span className="text-md">To</span>
         <Input
           className="w-full md:w-[40rem]"
           variant="bordered"
@@ -96,7 +97,6 @@ export default function SendPage() {
           value={recipient}
           onChange={(event) => setRecipient(event.target.value)}
         />
-
         {connected ? (
           <Button
             color="primary"
@@ -109,7 +109,7 @@ export default function SendPage() {
         ) : (
           <Button
             color="primary"
-            className="w-full mt-3"
+            className="w-full md:w-[40rem]"
             radius="sm"
             onClick={handleConnectWallet}
           >
