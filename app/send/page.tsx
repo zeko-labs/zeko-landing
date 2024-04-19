@@ -100,7 +100,7 @@ export default function SendPage() {
         {connected ? (
           <Button
             color="primary"
-            className="w-full mt-3"
+            className="w-full md:w-[40rem]"
             radius="sm"
             onClick={handleSend}
           >
