@@ -70,7 +70,7 @@ export default function SendPage() {
         </div>
       </div>
 
-      <div className="w-full flex flex-col gap-2">
+      <div className="w-full flex flex-col gap-2 mt-10">
         <span className="text-md">To</span>
         <Input
           className="w-full md:w-[40rem]"
