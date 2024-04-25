@@ -62,7 +62,7 @@ export default function DocsPage() {
   };
 
   useEffect(() => {
-    //supaInstance = createSupaClient();
+    supaInstance = createSupaClient();
   }, []);
 
   const NetworkSelector = () => (
