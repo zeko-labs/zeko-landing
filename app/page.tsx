@@ -1,10 +1,12 @@
 import { title, subtitle } from "@/components/primitives";
-import { fontLexendBold } from "@/config/fonts";
+import { fontLexendBold, fontLexendLight } from "@/config/fonts";
 
 export default function Home() {
   return (
     <section className="flex flex-col items-center md:items-start justify-start gap-4 md:gap-20 py-8 md:py-10 text-center md:text-left">
-      <div className="inline-block max-w-3xl justify-center">
+      <div
+        className={`inline-block max-w-3xl justify-center ${fontLexendLight.className}`}
+      >
         <h1 className={title()}>
           Decentralized Trust,{" "}
           <strong className={fontLexendBold.className}>Amplified</strong>

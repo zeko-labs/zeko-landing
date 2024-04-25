@@ -15,10 +15,14 @@ export default function DocsPage() {
   const [network, setNetwork] = useState(NETWORKS[0]);
   const [address, setAddress] = useState("");
   const [responseTxt, setResponseTxt] = useState("");
+  const [requesting, setRequesting] = useState(false);
 
   const handleRequest = async () => {
+    if (requesting) return;
+    setRequesting(true);
     const responseTxt = await fas.request(address);
     setResponseTxt(responseTxt);
+    setRequesting(false);
   };
 
   const NetworkSelector = () => (
@@ -86,6 +90,7 @@ export default function DocsPage() {
           color="primary"
           className="w-full md:w-fit"
           radius="sm"
+          isLoading={requesting}
           onClick={handleRequest}
         >
           REQUEST ➜
