@@ -141,9 +141,9 @@ export default function DocsPage() {
         </span>
       </div>
 
-      <span className={clsx(label(), "w-full")}>
+      <div className={clsx(label(), "w-full")}>
         {responseTxt || <>&nbsp;</>}
-      </span>
+      </div>
     </>
   );
 }
