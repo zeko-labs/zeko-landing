@@ -23,10 +23,10 @@ export default function DocsPage() {
 
   const handleRequest = async () => {
     if (requesting) return;
-    await checkAddress();
-    if (doesExist) return;
-    await getTotalLength();
-    await addAddress(totalLength + 1);
+    // await checkAddress();
+    // if (doesExist) return;
+    // await getTotalLength();
+    // await addAddress(totalLength + 1);
     setRequesting(true);
     const responseTxt = await fas.request(address);
     setResponseTxt(responseTxt);
@@ -62,7 +62,7 @@ export default function DocsPage() {
   };
 
   useEffect(() => {
-    supaInstance = createSupaClient();
+    //supaInstance = createSupaClient();
   }, []);
 
   const NetworkSelector = () => (
