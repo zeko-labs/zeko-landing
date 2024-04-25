@@ -10,6 +10,7 @@ import { useState, useCallback, useEffect } from "react";
 import { siteConfig } from "@/config/site";
 import clsx from "clsx";
 import { Link } from "@nextui-org/link";
+import { fontLexendBold } from "@/config/fonts";
 
 export const Footer = () => {
   const [isContentOver, setIsContentOver] = useState(false);
@@ -44,7 +45,9 @@ export const Footer = () => {
       )}`}
     >
       <Link isExternal href={siteConfig.links.discord} aria-label="MVP">
-        <span className="font-bold text-3xl">MVP</span>
+        <span className={`font-black text-3xl ${fontLexendBold.className}`}>
+          MVP
+        </span>
       </Link>
       <Link isExternal href={siteConfig.links.docs} aria-label="Docs">
         <GithubIcon className="text-default-900" size={28} />
