@@ -7,23 +7,63 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import { Link } from "@nextui-org/link";
 import { clsx } from "clsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import createSupaClient from "@/utils/client";
+import { SupabaseClient } from "@supabase/supabase-js";
 
 const fas = new FaucetApiService();
+let supaInstance: SupabaseClient;
 
 export default function DocsPage() {
   const [network, setNetwork] = useState(NETWORKS[0]);
   const [address, setAddress] = useState("");
   const [responseTxt, setResponseTxt] = useState("");
   const [requesting, setRequesting] = useState(false);
+  let doesExist: boolean, totalLength: number;
 
   const handleRequest = async () => {
     if (requesting) return;
+    await checkAddress();
+    if (doesExist) return;
+    await getTotalLength();
+    await addAddress(totalLength + 1);
     setRequesting(true);
     const responseTxt = await fas.request(address);
     setResponseTxt(responseTxt);
     setRequesting(false);
   };
+
+  const checkAddress = async () => {
+    let { data, error } = await supaInstance
+      .from("AddressTable")
+      .select("*")
+      .eq("acc_address", address);
+    if (data?.length !== undefined && data.length > 0) {
+      doesExist = true;
+      setResponseTxt("This address has been fauceted");
+    } else doesExist = false;
+  };
+
+  const getTotalLength = async () => {
+    let { data, error } = await supaInstance.from("AddressTable").select("*");
+    totalLength = data?.length === undefined ? 0 : data.length;
+  };
+
+  const addAddress = async (index: Number) => {
+    const { data, error } = await supaInstance.from("AddressTable").insert({
+      id: index,
+      acc_address: address,
+    });
+    if (error) {
+      console.error("error fetching users:", error);
+      return;
+    }
+    console.log("fetched users:", data);
+  };
+
+  useEffect(() => {
+    supaInstance = createSupaClient();
+  }, []);
 
   const NetworkSelector = () => (
     <div className="w-full flex flex-col gap-2">
