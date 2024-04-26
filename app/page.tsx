@@ -1,5 +1,5 @@
 import { title, subtitle } from "@/components/primitives";
-import { fontLexendBold, fontLexendLight } from "@/config/fonts";
+import { fontLexend, fontLexendBold, fontLexendLight } from "@/config/fonts";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <div
         className={`inline-block max-w-3xl justify-center ${fontLexendLight.className}`}
       >
-        <h1 className={title()}>
+        <h1 className={`${title()} ${fontLexend.className}`}>
           Decentralized Trust,{" "}
           <strong className={fontLexendBold.className}>Amplified</strong>
         </h1>
