@@ -73,7 +73,7 @@ export default function SendPage() {
       <div className="w-full flex flex-col gap-2 mt-10">
         <span className="text-md">To</span>
         <Input
-          className="w-full md:w-[40rem]"
+          className="w-full md:w-[40rem] mb-5"
           variant="bordered"
           type="email"
           placeholder="B62..."
@@ -83,7 +83,7 @@ export default function SendPage() {
         {connected ? (
           <Button
             color="primary"
-            className="w-full md:w-[40rem]"
+            className="w-full md:w-fit"
             radius="sm"
             onClick={handleSend}
           >
@@ -92,7 +92,7 @@ export default function SendPage() {
         ) : (
           <Button
             color="primary"
-            className="w-full md:w-[40rem]"
+            className="w-full md:w-fit"
             radius="sm"
             onClick={handleConnectWallet}
           >
