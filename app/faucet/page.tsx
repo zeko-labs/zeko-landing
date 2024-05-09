@@ -8,7 +8,11 @@ import { Input } from "@nextui-org/input";
 import { Link } from "@nextui-org/link";
 import { clsx } from "clsx";
 import { useState, useEffect } from "react";
-import createSupaClient from "@/utils/client";
+import createSupaClient, {
+  addToTable,
+  checkAddressInTable,
+  getUserCount,
+} from "@/utils/client";
 import { SupabaseClient } from "@supabase/supabase-js";
 
 const fas = new FaucetApiService();
@@ -34,10 +38,7 @@ export default function DocsPage() {
   };
 
   const checkAddress = async () => {
-    let { data, error } = await supaInstance
-      .from("AddressTable")
-      .select("*")
-      .eq("acc_address", address);
+    let data = await checkAddressInTable(supaInstance, address);
     if (data?.length !== undefined && data.length > 0) {
       doesExist = true;
       setResponseTxt("This address has been fauceted");
@@ -45,20 +46,12 @@ export default function DocsPage() {
   };
 
   const getTotalLength = async () => {
-    let { data, error } = await supaInstance.from("AddressTable").select("*");
+    let data = await getUserCount(supaInstance);
     totalLength = data?.length === undefined ? 0 : data.length;
   };
 
   const addAddress = async (index: Number) => {
-    const { data, error } = await supaInstance.from("AddressTable").insert({
-      id: index,
-      acc_address: address,
-    });
-    if (error) {
-      console.error("error fetching users:", error);
-      return;
-    }
-    console.log("fetched users:", data);
+    await addToTable(supaInstance, index, address);
   };
 
   useEffect(() => {
