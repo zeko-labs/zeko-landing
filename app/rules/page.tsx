@@ -30,8 +30,8 @@ export default function Rules() {
               <ul className="m-5" style={{ listStyle: "square" }}>
                 <li>Comments that others find offensive</li>
                 <li>
-                  Cheating or taking unfair advantage of other participants'
-                  work or efforts
+                  Cheating or taking unfair advantage of other
+                  participants&lsquo; work or efforts
                 </li>
                 <li>
                   Any activity related to harassing, demeaning, mocking, or
@@ -140,10 +140,11 @@ export default function Rules() {
                 You are not be a citizen or resident of any jurisdiction subject
                 to sanctions as enforced by the Office of Foreign Assets
                 Control, including without limitation Burma, Crimea and
-                Sevastopol, Cote d'Ivoire, Cuba, Democratic Republic of Congo,
-                Iran, Iraq, Libya, North Korea, Sudan, Syria, Zimbabwe, and you
-                must not be named by OFAC as a Specially Designated National or
-                Blocked Person which can be found at: www.treasury.gov
+                Sevastopol, Cote d&lsquo;Ivoire, Cuba, Democratic Republic of
+                Congo, Iran, Iraq, Libya, North Korea, Sudan, Syria, Zimbabwe,
+                and you must not be named by OFAC as a Specially Designated
+                National or Blocked Person which can be found at:
+                www.treasury.gov
               </div>
             </div>
             <div className="flex gap-2">
