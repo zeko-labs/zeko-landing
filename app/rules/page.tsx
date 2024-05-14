@@ -47,6 +47,68 @@ export default function Rules() {
                 </li>
               </ul>
             </div>
+            <div className="text-base font-Trebuchet">
+              Participants asked to stop any behavior deemed as harassment are
+              expected to comply immediately. If a participant fails to comply
+              they will be asked to leave the event. Sponsors, judges, mentors,
+              volunteers, organizers, Zeko team, and anyone else at the event
+              are also subject to the Code.
+            </div>
+
+            <div className="text-base font-Trebuchet">
+              If a participant engages in behavior that violates the Code, the
+              hackathon organizers will take any action they deem appropriate,
+              including warning the offender or expelling them from the event.
+            </div>
+
+            <div className="text-base font-Trebuchet">
+              If you feel uncomfortable or think there may be a potential
+              violation of the code of conduct, please report it immediately to
+              one of the event organizers or by emailing us at
+              communications@zeko.io. All reporters have the right to remain
+              anonymous.
+            </div>
+          </div>
+          <div className="flex flex-col gap-y-4">
+            <div className="text-2xl">Applicability</div>
+            <div className="text-base font-Trebuchet">
+              This policy shall be applicable on all spaces related to
+              #ZekoBoost, including the following, as well as their online
+              counterparts (if any):
+            </div>
+            <div className="text-base font-Trebuchet ml-5">
+              <div className="text-base font-Trebuchet">- Hackathons</div>
+              <div className="text-base font-Trebuchet">
+                - talks, presentations, or demos
+              </div>
+              <div className="text-base font-Trebuchet">- Workshops</div>
+              <div className="text-base font-Trebuchet">
+                - parties and social events
+              </div>
+              <div className="text-base font-Trebuchet">
+                - social media channels, etc.
+              </div>
+            </div>
+            <div className="text-base font-Trebuchet">
+              This Code of Conduct also applies equally to all sponsors and
+              partners of hackathons, and to all projects that are made at the
+              hackathon.
+            </div>
+          </div>
+          <div className="flex flex-col gap-y-4">
+            <div className="text-2xl">No plagiarism of past work</div>
+            <div className="text-base font-Trebuchet">
+              We encourage you to submit projects prepared in the duration of
+              the hackathon. Project submissions must be deployed to Zeko devnet
+              in order to be eligible to earn prizes.
+            </div>
+            <div className="text-base font-Trebuchet">
+              If you decide to submit projects consisting of re-used code, or
+              re-submit a project that you have already submitted previously to
+              any other hackathon, you are to disclose such previous use and its
+              extent with the submission, and explain the additional
+              improvements you made to the code for your #ZekoBoost entry.
+            </div>
           </div>
           <div className="flex flex-col gap-y-4">
             <div className="text-2xl">Event Rules & Conditions</div>
@@ -54,8 +116,8 @@ export default function Rules() {
               <div className="text-base font-Trebuchet">1. </div>
               <div className="text-base font-Trebuchet">
                 The following rules & conditions (the “Rules”) apply to this
-                #ZekoBoost hackathon (the “Event”). By clicking the “I Accept”
-                button, you acknowledge that you have read these Rules,
+                #ZekoBoost hackathon (the “Event”). By registering for the
+                contest, you acknowledge that you have read these Rules,
                 understand them, and agree to be bound as follows:
               </div>
             </div>
