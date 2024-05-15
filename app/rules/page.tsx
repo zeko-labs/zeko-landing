@@ -96,7 +96,7 @@ export default function Rules() {
             </div>
           </div>
           <div className="flex flex-col gap-y-4">
-            <div className="text-2xl">No plagiarism of past work</div>
+            <div className="text-2xl">Regarding past work</div>
             <div className="text-base font-Trebuchet">
               We encourage you to submit projects prepared in the duration of
               the hackathon. Project submissions must be deployed to Zeko devnet
