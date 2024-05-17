@@ -3,13 +3,15 @@
 import { useState } from "react";
 import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
-import { mina } from "@/lib/wallet";
-import { connect } from "@/lib/wallet";
+import { connect, getAccountBalance } from "@/lib/wallet";
+import { title } from "@/components/primitives";
 
 export default function Bridge() {
   const [amount, setAmount] = useState("");
   const [recipient, setRecipient] = useState("");
   const [directFlag, setDirectFlag] = useState(false);
+  const [balance, setBalance] = useState("");
+
   const handleSwitchDirection = () => {
     setDirectFlag(!directFlag);
   };
@@ -18,7 +20,10 @@ export default function Bridge() {
 
   const handleConnectWallet = () => {
     connect()
-      .then(() => setConnected(2))
+      .then(() => {
+        setConnected(2);
+        getAccountBalance().then((res) => setBalance(res));
+      })
       .catch((err) => console.log(err));
   };
 
@@ -48,7 +53,8 @@ export default function Bridge() {
 
   return (
     <div>
-      <div className="pb-6 flex flex-col items-center">
+      <h1 className={title()}>Zeko Bridge</h1>
+      <div className="pb-6 flex flex-col items-center mt-10">
         <div>
           <div className="w-full flex flex-col gap-2">
             <div className="pt-5">
@@ -94,6 +100,7 @@ export default function Bridge() {
         color="primary"
         className="w-full md:w-fit"
         radius="sm"
+        isLoading={connected === 3}
         onClick={() => {
           handleSend(connected);
         }}
@@ -108,7 +115,13 @@ export default function Bridge() {
       </Button>
       <div className="mt-10">
         <div className="text-3xl">Transaction History</div>
-        <div className="pt-5">Your transaction will appear here.</div>
+        {connected === 3 ? (
+          <div className="pt-5">
+            Bridge transactions may take a few minutes to process and Claim.
+          </div>
+        ) : (
+          ""
+        )}
         <Button color="primary" className="w-full md:w-fit mt-5" radius="sm">
           CLEAR TRANSACTION HISTORY
         </Button>
