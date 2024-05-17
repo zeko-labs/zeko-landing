@@ -22,7 +22,7 @@ export default function Bridge() {
     connect()
       .then(() => {
         setConnected(2);
-        getAccountBalance().then((res) => setBalance(res));
+        // getAccountBalance().then((res) => setBalance(res));
       })
       .catch((err) => console.log(err));
   };
