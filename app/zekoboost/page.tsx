@@ -44,28 +44,36 @@ export default function BoostPage() {
         <div className="flex flex-row justify-between w-full">
           <Button
             radius="md"
-            className="p-10 bg-[#5980ff] text-2xl text-white"
+            className={`p-10 ${
+              subpage === 1 ? "bg-[#4873ff]" : "bg-[#7494ff]"
+            } text-2xl text-white`}
             onClick={() => setSubPage(1)}
           >
             Prizes
           </Button>
           <Button
             radius="md"
-            className="p-10 bg-[#5980ff] text-2xl text-white"
+            className={`p-10 ${
+              subpage === 2 ? "bg-[#4873ff]" : "bg-[#7494ff]"
+            } text-2xl text-white`}
             onClick={() => setSubPage(2)}
           >
             Judges
           </Button>
           <Button
             radius="md"
-            className="p-10 bg-[#5980ff] text-2xl text-white"
+            className={`p-10 ${
+              subpage === 3 ? "bg-[#4873ff]" : "bg-[#7494ff]"
+            } text-2xl text-white`}
             onClick={() => setSubPage(3)}
           >
             Scoring
           </Button>
           <Button
             radius="md"
-            className="p-10 bg-[#5980ff] text-2xl text-white"
+            className={`p-10 ${
+              subpage === 4 ? "bg-[#4873ff]" : "bg-[#7494ff]"
+            } text-2xl text-white`}
             onClick={() => setSubPage(4)}
           >
             Entry
@@ -75,8 +83,8 @@ export default function BoostPage() {
           {subpage < 4 ? (
             <Image
               src={subPageUrl[subpage]}
-              width={1000}
-              height={1000}
+              width={700}
+              height={700}
               alt="Page"
             />
           ) : (
