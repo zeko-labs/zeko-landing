@@ -4,6 +4,7 @@ import { useState } from "react";
 import { title } from "@/components/primitives";
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BoostPage() {
   const [subpage, setSubPage] = useState(0);
@@ -27,18 +28,20 @@ export default function BoostPage() {
         <h1 className={`${title()} w-full`}>Developer Contest Details</h1>
       </div>
       <div>
-        <Button
-          radius="full"
-          className="bg-gradient-to-r from-[#F2BB3E] to-[#FFE359] text-white p-10 text-5xl w-full"
-        >
-          Join Discord to Earn Prizes --&gt;
-          <Image
-            src={"./splash/discord.png"}
-            alt="Discord Image"
-            width={50}
-            height={50}
-          />
-        </Button>
+        <Link href="https://discord.gg/vSDxqAchUY">
+          <Button
+            radius="full"
+            className="bg-gradient-to-r from-[#F2BB3E] to-[#FFE359] text-white p-10 text-5xl w-full"
+          >
+            Join Discord to Earn Prizes --&gt;
+            <Image
+              src={"./splash/discord.png"}
+              alt="Discord Image"
+              width={50}
+              height={50}
+            />
+          </Button>
+        </Link>
       </div>
       <div className="flex flex-col gap-20 w-full items-center">
         <div className="flex flex-row justify-between w-full">
