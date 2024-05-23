@@ -27,23 +27,7 @@ export default function BoostPage() {
       <div>
         <h1 className={`${title()} w-full`}>Developer Contest Details</h1>
       </div>
-      <div>
-        <Link href="https://discord.gg/vSDxqAchUY">
-          <Button
-            radius="full"
-            className="bg-gradient-to-r from-[#F2BB3E] to-[#FFE359] text-black p-7 text-3xl w-full"
-          >
-            Join Discord to Earn Prizes --&gt;
-            <Image
-              src={"./splash/discord.png"}
-              alt="Discord Image"
-              width={50}
-              height={50}
-            />
-          </Button>
-        </Link>
-      </div>
-      <div className="flex flex-col gap-20 w-full items-center">
+      <div className="flex flex-col gap-10 w-full items-center">
         <div className="flex flex-row justify-between w-full gap-5">
           <Button
             radius="md"
@@ -186,6 +170,25 @@ export default function BoostPage() {
             </div>
           )}
         </div>
+      </div>
+      <div>
+        <Link href="https://discord.gg/vSDxqAchUY">
+          <Button
+            radius="full"
+            className="bg-gradient-to-r from-[#F2BB3E] to-[#FFE359] text-black p-9 text-lg w-full"
+          >
+            <div className="break-words">
+              Join Discord for <br />
+              the Latest Updates
+            </div>
+            <Image
+              src={"./splash/discord.png"}
+              alt="Discord Image"
+              width={50}
+              height={50}
+            />
+          </Button>
+        </Link>
       </div>
     </div>
   );
