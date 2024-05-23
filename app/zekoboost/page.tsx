@@ -16,7 +16,7 @@ export default function BoostPage() {
   ];
   return (
     <div className="flex flex-col items-center gap-8 w-full mb-20">
-      <div>
+      <div onClick={() => setSubPage(0)}>
         <Image
           src={"./splash/ZekoBoost.png"}
           alt="Boost Image"
@@ -31,7 +31,7 @@ export default function BoostPage() {
         <Link href="https://discord.gg/vSDxqAchUY">
           <Button
             radius="full"
-            className="bg-gradient-to-r from-[#F2BB3E] to-[#FFE359] text-white p-7 text-3xl w-full"
+            className="bg-gradient-to-r from-[#F2BB3E] to-[#FFE359] text-black p-7 text-3xl w-full"
           >
             Join Discord to Earn Prizes --&gt;
             <Image
@@ -121,7 +121,7 @@ export default function BoostPage() {
             </iframe>
           ) : (
             <div className="flex flex-col gap-10 items-center w-full">
-              <div className="flex flex-col gap-3 items-center">
+              <div className="flex flex-col gap-7 items-center">
                 <div className="text-black text-2xl">Zeko Logo</div>
                 <div className="flex justify-between gap-20">
                   <a href="/downloads/Zeko-Logo-Dark.png" download>
@@ -142,8 +142,8 @@ export default function BoostPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex flex-col gap-3 items-center">
-                <div className="text-black text-2xl">Partnership Mashup</div>
+              <div className="flex flex-col gap-7 items-center">
+                <div className="text-black text-2xl">Partnership Mashups</div>
                 <div className="flex justify-between gap-20">
                   <a href="/downloads/gray.png" download>
                     <Image
@@ -163,8 +163,7 @@ export default function BoostPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex flex-col gap-3 items-center">
-                <div className="text-black text-2xl">Partnership Mashup</div>
+              <div className="flex flex-col gap-5 items-center">
                 <div className="flex justify-between gap-20">
                   <a href="/downloads/black.png" download>
                     <Image
