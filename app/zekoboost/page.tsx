@@ -31,7 +31,7 @@ export default function BoostPage() {
         <Link href="https://discord.gg/vSDxqAchUY">
           <Button
             radius="full"
-            className="bg-gradient-to-r from-[#F2BB3E] to-[#FFE359] text-white p-10 text-4xl w-full"
+            className="bg-gradient-to-r from-[#F2BB3E] to-[#FFE359] text-white p-10 text-3xl w-full"
           >
             Join Discord to Earn Prizes --&gt;
             <Image
