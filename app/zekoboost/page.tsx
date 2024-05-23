@@ -16,14 +16,14 @@ export default function BoostPage() {
   ];
   return (
     <div className="flex flex-col items-center gap-8 w-full mb-20">
-      <div onClick={() => setSubPage(0)}>
+      <button onClick={() => setSubPage(0)}>
         <Image
           src={"./splash/ZekoBoost.png"}
           alt="Boost Image"
           width={400}
           height={200}
         />
-      </div>
+      </button>
       <div>
         <h1 className={`${title()} w-full`}>Developer Contest Details</h1>
       </div>
