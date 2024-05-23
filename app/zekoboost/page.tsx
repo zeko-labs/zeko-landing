@@ -93,12 +93,24 @@ export default function BoostPage() {
         </div>
         <div>
           {subpage < 4 ? (
-            <Image
-              src={subPageUrl[subpage]}
-              width={700}
-              height={700}
-              alt="Page"
-            />
+            <div className="flex flex-col gap-5">
+              <Image
+                src={subPageUrl[subpage]}
+                width={700}
+                height={700}
+                alt="Page"
+              />
+              {subpage === 1 ? (
+                <Image
+                  src={"./splash/2-1.png"}
+                  width={700}
+                  height={700}
+                  alt="Page"
+                />
+              ) : (
+                <></>
+              )}
+            </div>
           ) : subpage === 4 ? (
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSedPNSBQD_5SSS2ZcT0nk_woS5TCk1H4zd59G4EiGTrlM1ibA/viewform?embedded=true"
