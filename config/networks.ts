@@ -1,4 +1,3 @@
 export const NETWORKS = [
-  // { chainId: "berkeley", name: "BERKELEY" },
-  { chainId: "devnet", name: "DEVNET" },
+  { chainId: "devnet", name: "ZEKO ON DEVNET" },
 ];
