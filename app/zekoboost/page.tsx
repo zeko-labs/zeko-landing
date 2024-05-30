@@ -22,16 +22,17 @@ export default function BoostPage() {
           alt="Boost Image"
           width={400}
           height={200}
+          className="lg:w-96 sm:w-60"
         />
       </button>
-      <div>
-        <h1 className={`${title()} w-full`}>Developer Contest Details</h1>
+      <div className="text-center">
+        <div className={`${title()} w-full`}>Developer Contest Details</div>
       </div>
       <div className="flex flex-col gap-10 w-full items-center">
-        <div className="flex flex-row justify-between w-full gap-5">
+        <div className="flex flex-row flex-wrap justify-center gap-5">
           <Button
             radius="md"
-            className={`p-7 ${
+            className={`lg:lg:p-7 sm:p-5 sm:p-5 ${
               subpage === 1 ? "bg-[#4873ff]" : "bg-[#7494ff]"
             } text-xl text-white`}
             onClick={() => setSubPage(1)}
@@ -40,7 +41,7 @@ export default function BoostPage() {
           </Button>
           <Button
             radius="md"
-            className={`p-7 ${
+            className={`lg:p-7 sm:p-5 ${
               subpage === 2 ? "bg-[#4873ff]" : "bg-[#7494ff]"
             } text-xl text-white`}
             onClick={() => setSubPage(2)}
@@ -49,7 +50,7 @@ export default function BoostPage() {
           </Button>
           <Button
             radius="md"
-            className={`p-7 ${
+            className={`lg:p-7 sm:p-5 ${
               subpage === 3 ? "bg-[#4873ff]" : "bg-[#7494ff]"
             } text-xl text-white`}
             onClick={() => setSubPage(3)}
@@ -58,7 +59,7 @@ export default function BoostPage() {
           </Button>
           <Button
             radius="md"
-            className={`p-7 ${
+            className={`lg:p-7 sm:p-5 ${
               subpage === 4 ? "bg-[#4873ff]" : "bg-[#7494ff]"
             } text-xl text-white`}
             onClick={() => setSubPage(4)}
@@ -67,7 +68,7 @@ export default function BoostPage() {
           </Button>
           <Button
             radius="md"
-            className={`p-7 ${
+            className={`lg:p-7 sm:p-5 ${
               subpage === 5 ? "bg-[#4873ff]" : "bg-[#7494ff]"
             } text-xl text-white`}
             onClick={() => setSubPage(5)}
