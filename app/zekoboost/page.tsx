@@ -99,8 +99,7 @@ export default function BoostPage() {
           ) : subpage === 4 ? (
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSedPNSBQD_5SSS2ZcT0nk_woS5TCk1H4zd59G4EiGTrlM1ibA/viewform?embedded=true"
-              width="640"
-              height="1922"
+              className="lg:w-[500px] sm:w-[300px] h-[1922px]"
             >
               Loading…
             </iframe>
