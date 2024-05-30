@@ -76,7 +76,7 @@ export default function BoostPage() {
             Resources
           </Button>
         </div>
-        <div>
+        <div className="w-full">
           {subpage < 4 ? (
             <div className="flex flex-col gap-5">
               <Image
@@ -99,7 +99,7 @@ export default function BoostPage() {
           ) : subpage === 4 ? (
             <iframe
               src="https://docs.google.com/forms/d/e/1FAIpQLSedPNSBQD_5SSS2ZcT0nk_woS5TCk1H4zd59G4EiGTrlM1ibA/viewform?embedded=true"
-              className="lg:w-[500px] sm:w-[300px] h-[1922px]"
+              className="w-full h-[1922px]"
             >
               Loading…
             </iframe>
