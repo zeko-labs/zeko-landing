@@ -32,7 +32,7 @@ export default function BoostPage() {
         <div className="flex flex-row flex-wrap justify-center gap-5">
           <Button
             radius="md"
-            className={`lg:lg:p-7 sm:p-5 sm:p-5 ${
+            className={`lg:p-7 sm:p-5 ${
               subpage === 1 ? "bg-[#4873ff]" : "bg-[#7494ff]"
             } text-xl text-white`}
             onClick={() => setSubPage(1)}
