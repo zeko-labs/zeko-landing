@@ -1,4 +1,5 @@
 import useAccount from "@/states/useAccount";
+import { Mina, PublicKey } from "o1js";
 
 export const mina = typeof window !== "undefined" && (window as any)?.mina;
 
@@ -9,6 +10,10 @@ export async function connect() {
   if (!mina) return;
   await requestNetwork();
   await requestAccounts();
+  // const Berkeley = Mina.Network(
+  //   "https://api.minascan.io/node/devnet/v1/graphql"
+  // );
+  // Mina.setActiveInstance(Berkeley);
 
   typeof window !== "undefined" &&
     window.localStorage.setItem(WALLET_CONNECTED_BEFORE_FLAG, "true");
@@ -23,6 +28,22 @@ export async function disconnect() {
     hasBeenSetup: false,
     publicKeyBase58: null,
   }));
+}
+
+export async function getAccountBalance() {
+  let publicKeyBase58: string = "";
+  // await mina
+  //   .requestAccounts()
+  //   .then((accounts: string[]) => {
+  //     // if (accounts?.length > 0) {
+  //     //   publicKeyBase58 = accounts[0];
+  //     //   const publicKey = PublicKey.fromBase58(publicKeyBase58);
+  //     //   const balance = Mina.getBalance(publicKey);
+  //     //   return balance;
+  //     // }
+  //   })
+  //   .catch((e: any) => console.error(e));
+  return "";
 }
 
 async function requestNetwork() {
