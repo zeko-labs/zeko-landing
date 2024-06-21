@@ -8,55 +8,29 @@ import { Input } from "@nextui-org/input";
 import { Link } from "@nextui-org/link";
 import { clsx } from "clsx";
 import { useState, useEffect } from "react";
-import createSupaClient, {
-  addToTable,
-  checkAddressInTable,
-  getUserCount,
-} from "@/utils/client";
-import { SupabaseClient } from "@supabase/supabase-js";
 
 const fas = new FaucetApiService();
-let supaInstance: SupabaseClient;
 
 export default function DocsPage() {
   const [network, setNetwork] = useState(NETWORKS[0]);
   const [address, setAddress] = useState("");
   const [responseTxt, setResponseTxt] = useState("");
   const [requesting, setRequesting] = useState(false);
-  let doesExist: boolean, totalLength: number;
+
+  let fauceted = false;
 
   const handleRequest = async () => {
+    if (fauceted) {
+      setResponseTxt("You have already attempted to faucet.");
+      return;
+    }
     if (requesting) return;
-    await checkAddress();
-    if (doesExist) return;
-    await getTotalLength();
-    await addAddress(totalLength + 1);
     setRequesting(true);
     const responseTxt = await fas.request(address);
     setResponseTxt(responseTxt);
     setRequesting(false);
+    // FIXME: set fauceted = true if response is 2xx
   };
-
-  const checkAddress = async () => {
-    let data = await checkAddressInTable(supaInstance, address);
-    if (data?.length !== undefined && data.length > 0) {
-      doesExist = true;
-      setResponseTxt("This address has been fauceted");
-    } else doesExist = false;
-  };
-
-  const getTotalLength = async () => {
-    let data = await getUserCount(supaInstance);
-    totalLength = data?.length === undefined ? 0 : data.length;
-  };
-
-  const addAddress = async (index: Number) => {
-    await addToTable(supaInstance, index, address);
-  };
-
-  useEffect(() => {
-    supaInstance = createSupaClient();
-  }, []);
 
   const NetworkSelector = () => (
     <div className="w-full flex flex-col gap-2">
