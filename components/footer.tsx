@@ -49,7 +49,7 @@ export const Footer = () => {
           MVP
         </span>
       </Link>
-      <Link isExternal href={siteConfig.links.docs} aria-label="Docs">
+      <Link isExternal href={siteConfig.links.github} aria-label="Docs">
         <GithubIcon className="text-default-900" size={28} />
       </Link>
       <Link

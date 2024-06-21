@@ -66,5 +66,6 @@ export const siteConfig = {
     litepaper: "https://docsend.com/view/f9a6kgdr4tjwuqng",
     discord: "https://discord.gg/vSDxqAchUY",
     docs: "https://docs.zeko.io/",
+    github: "https://github.com/zeko-labs",
   },
 };
